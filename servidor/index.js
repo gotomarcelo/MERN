@@ -9,7 +9,7 @@ app.use(cors());
 const FoodModel = require("./models/Food.js");
 
 mongoose.connect(
-  "mongodb+srv://admin:admin@cluster0.zh8gi.mongodb.net/food?retryWrites=true&w=majority",
+  "mongodb+srv://admin:****@cluster0.zh8gi.mongodb.net/food?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
   }
