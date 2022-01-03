@@ -86,8 +86,5 @@ body {
 
 textarea {
   font-size: 18px;
-}
-
-p {
   white-space: pre-wrap;
 }

@@ -24,9 +24,9 @@ body {
 h2 {
   margin: 10px 0;
   padding-bottom: 10px;
-  width: 300px;
-  color: #0084ff;
-  border-bottom: 3px solid #b4daff;
+  width: 180px;
+  color: #78788c;
+  border-bottom: 3px solid #78788c;
 }
 
 .entrada {
@@ -39,16 +39,20 @@ h2 {
   border: 0;
   font-family: "Montserrat", sans-serif;
   transition: all 0.3s;
-  border-bottom: 2px solid #0084ff;
+  border-bottom: 2px solid #bebed2;
 }
 
 .entrada:focus {
-  border-bottom: 2px solid #b4daff;
+  border-bottom: 2px solid #78788c;
 }
 
 .form {
-  width: 1200px;
-  height: 420px;
+  width: 340px;
+  height: 440px;
+  background: #e6e6e6;
+  border-radius: 8px;
+  box-shadow: 0 0 40px -10px #000;
+  margin: calc(50vh - 220px) auto;
   padding: 20px 30px;
   max-width: calc(100vw - 40px);
   box-sizing: border-box;
@@ -61,33 +65,20 @@ h2 {
   display: block;
   margin: 28px 0 0;
   font-size: 14px;
-  color: #0084ff;
+  color: #5a5a5a;
 }
 .button {
   float: right;
-  padding: 0.1rem;
-  border-radius: 5px;
+  padding: 8px 12px;
   margin: 8px 0 0;
   font-family: "Montserrat", sans-serif;
-  border: 2px solid #0084ff;
+  border: 2px solid #78788c;
   background: 0;
   color: #5a5a6e;
   cursor: pointer;
   transition: all 0.3s;
 }
 .button:hover {
-  background: #b4daff;
-  color: rgb(0, 0, 0);
-}
-
-body {
-  background-color: #e7ffff;
-}
-
-textarea {
-  font-size: 18px;
-}
-
-p {
-  white-space: pre-wrap;
+  background: #78788c;
+  color: #fff;
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "./App.css";
+import "./Popup.css";
+import "./Popup.js"
 import Colapsavel from "./Colapsavel";
 
 function App() {
@@ -11,6 +13,12 @@ function App() {
   const [newConteudoSlide, setNewConteudoSlide] = useState("");
 
   const [slideList, setSlideList] = useState([]);
+
+  const [isOpen, setIsOpen] = useState(false);
+
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     Axios.get("http://localhost:3001/read").then((response) =>
@@ -78,30 +86,51 @@ function App() {
         <h1>SLIDES</h1>
         {slideList.map((val, key) => {
           return (
-              <Colapsavel label={val.tituloSlide} key={key}>
-                <h2>{val.tituloSlide}</h2>
-                <p>{val.conteudoSlide}</p>
-                <input
-                  type="text"
-                  placeholder="Novo nome do título"
-                  onChange={(event) => {
-                    setNewTituloSlide(event.target.value);
-                  }}
+            <Colapsavel label={val.tituloSlide} key={key}>
+              <h1>{val.tituloSlide}</h1>
+              <p>{val.conteudoSlide}</p>
+              <input
+                className="button"
+                type="button"
+                value="Click to Open Popup"
+                onClick={togglePopup}
+              />
+              {isOpen && (
+                <Popup
+                  content={
+                    <>
+                      <input
+                        type="text"
+                        placeholder="Novo nome do título"
+                        onChange={(event) => {
+                          setNewTituloSlide(event.target.value);
+                        }}
+                      />
+                      <input
+                        type="text"
+                        placeholder="Atualizar conteudo"
+                        onChange={(event) => {
+                          setNewConteudoSlide(event.target.value);
+                        }}
+                      />
+                      <button
+                        className="button"
+                        onClick={() => updateSlide(val._id)}
+                      >
+                        Atualizar
+                      </button>
+                      <button
+                        className="button"
+                        onClick={() => deleteSlide(val._id)}
+                      >
+                        Deletar
+                      </button>
+                    </>
+                  }
+                  handleClose={togglePopup}
                 />
-                <input
-                  type="text"
-                  placeholder="Atualizar conteudo"
-                  onChange={(event) => {
-                    setNewConteudoSlide(event.target.value);
-                  }}
-                />
-                <button className="button" onClick={() => updateSlide(val._id)}>
-                  Atualizar
-                </button>
-                <button className="button" onClick={() => deleteSlide(val._id)}>
-                  Deletar
-                </button>
-              </Colapsavel>
+              )}
+            </Colapsavel>
           );
         })}
       </body>

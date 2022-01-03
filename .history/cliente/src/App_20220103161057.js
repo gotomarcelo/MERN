@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "./App.css";
+
+import "./Popup";
 import Colapsavel from "./Colapsavel";
 
 function App() {
@@ -78,8 +80,9 @@ function App() {
         <h1>SLIDES</h1>
         {slideList.map((val, key) => {
           return (
+            <>
               <Colapsavel label={val.tituloSlide} key={key}>
-                <h2>{val.tituloSlide}</h2>
+                <h1>{val.tituloSlide}</h1>
                 <p>{val.conteudoSlide}</p>
                 <input
                   type="text"
@@ -102,6 +105,7 @@ function App() {
                   Deletar
                 </button>
               </Colapsavel>
+            </>
           );
         })}
       </body>

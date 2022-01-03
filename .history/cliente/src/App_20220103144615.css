@@ -26,7 +26,7 @@ h2 {
   padding-bottom: 10px;
   width: 300px;
   color: #0084ff;
-  border-bottom: 3px solid #b4daff;
+  border-bottom: 3px solid #1a90ff;
 }
 
 .entrada {
@@ -48,7 +48,7 @@ h2 {
 
 .form {
   width: 1200px;
-  height: 420px;
+  height: 600px;
   padding: 20px 30px;
   max-width: calc(100vw - 40px);
   box-sizing: border-box;
@@ -77,17 +77,5 @@ h2 {
 }
 .button:hover {
   background: #b4daff;
-  color: rgb(0, 0, 0);
-}
-
-body {
-  background-color: #e7ffff;
-}
-
-textarea {
-  font-size: 18px;
-}
-
-p {
-  white-space: pre-wrap;
+  color: #fff;
 }

@@ -70,38 +70,32 @@ function App() {
                 }}
               />
             </p>
-            <button className="button" onClick={addToList}>
-              Add To List
-            </button>
+            <button className="button" onClick={addToList}>Add To List</button>
           </form>
         </Colapsavel>
         <h1>SLIDES</h1>
         {slideList.map((val, key) => {
           return (
-              <Colapsavel label={val.tituloSlide} key={key}>
-                <h2>{val.tituloSlide}</h2>
-                <p>{val.conteudoSlide}</p>
-                <input
-                  type="text"
-                  placeholder="Novo nome do título"
-                  onChange={(event) => {
-                    setNewTituloSlide(event.target.value);
-                  }}
-                />
-                <input
-                  type="text"
-                  placeholder="Atualizar conteudo"
-                  onChange={(event) => {
-                    setNewConteudoSlide(event.target.value);
-                  }}
-                />
-                <button className="button" onClick={() => updateSlide(val._id)}>
-                  Atualizar
-                </button>
-                <button className="button" onClick={() => deleteSlide(val._id)}>
-                  Deletar
-                </button>
-              </Colapsavel>
+            <Colapsavel label={val.tituloSlide} key={key}>
+              <h1>{val.tituloSlide}</h1>
+              <p>{val.conteudoSlide}</p>
+              <input
+                type="text"
+                placeholder="Novo nome do título"
+                onChange={(event) => {
+                  setNewTituloSlide(event.target.value);
+                }}
+              />
+              <input
+                type="text"
+                placeholder="Atualizar conteudo"
+                onChange={(event) => {
+                  setNewConteudoSlide(event.target.value);
+                }}
+              />
+              <button className="button" onClick={() => updateSlide(val._id)}>Atualizar</button>
+              <button className="button" onClick={() => deleteSlide(val._id)}>Deletar</button>
+            </Colapsavel>
           );
         })}
       </body>
