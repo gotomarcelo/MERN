@@ -9,7 +9,11 @@ app.use(cors());
 const SlideModel = require("./models/Slide.js");
 
 mongoose.connect(
+<<<<<<< HEAD
   "mongodb+srv://admin:admin@cluster0.zh8gi.mongodb.net/slide?retryWrites=true&w=majority",
+=======
+  "mongodb+srv://admin:****@cluster0.zh8gi.mongodb.net/food?retryWrites=true&w=majority",
+>>>>>>> e5b2858d7d8ddefa3e47058f257e4ae659ac02ff
   {
     useNewUrlParser: true,
   }
