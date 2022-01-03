@@ -41,13 +41,11 @@ app.get("/read", async (req, res) => {
 
 app.put("/update", async (req, res) => {
   const newTituloSlide = req.body.newTituloSlide;
-  const newConteudoSlide = req.body.newConteudoSlide;
   const id = req.body.id;
 
   try {
     await SlideModel.findById(id, (error, updatedSlide) => {
       updatedSlide.tituloSlide = newTituloSlide;
-      updatedSlide.conteudoSlide = newConteudoSlide;
       updatedSlide.save();
       res.send("Atualizado");
     });

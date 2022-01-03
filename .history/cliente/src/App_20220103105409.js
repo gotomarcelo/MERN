@@ -41,7 +41,9 @@ function App() {
   };
 
   return (
-    <>
+    <><head>
+      <title>oi</title>
+    </head>
     <body>
         <h1>React To The Future</h1>
         <Colapsavel label="Adicionar Slide">
