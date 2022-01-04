@@ -1,0 +1,32 @@
+.colapsavel .toggle {
+  background: #0084ff;
+  border: unset;
+  cursor: pointer;
+  font: unset;
+  padding: 0.3rem;
+  border-radius: 5px;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  text-align: left;
+  align-content: center;
+}
+
+.colapsavel .conteudo {
+    border: 1px solid #afafaf;
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    width: 98%;
+    align-content: center;
+}
+
+.colapsavel .conteudo-pai {
+    height: 0px;
+    overflow: hidden;
+    transition: height ease 0.3s;
+}
+
+
+
+
