@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "./App.css";
 import Colapsavel from "./Colapsavel";
-import "./Popup.css";
+import Popup from "./Popup";
 
 function App() {
   const [tituloSlide, setTitulo] = useState("");
@@ -49,10 +49,10 @@ function App() {
 
   return (
     <>
-      <body>
+
         <h1>React To The Future</h1>
         <Colapsavel label="Adicionar Slide">
-          <form class="form">
+          <form className="form">
             <h2>Adicionar Slide</h2>
             <p className="p" type="Título:">
               <input
@@ -77,7 +77,7 @@ function App() {
                 }}
               />
             </p>
-            <button className="button" onClick={addToList}>
+            <button  className="button4" onClick={addToList}>
               Add To List
             </button>
           </form>
@@ -87,65 +87,56 @@ function App() {
         {slideList.map((val, key) => {
           return (
             <Colapsavel label={val.tituloSlide} key={key}>
-              <form class="form2">
+              <form className="form2">
                 <h2>{val.tituloSlide}</h2>
                 <p>{val.conteudoSlide}</p>
-                <input
-                  className="button2"
-                  type="button"
-                  value="..."
-                  onClick={togglePopup}
-                />
-                {isOpen && (
-                  <div className="popup-box">
-                    <div className="box">
-                      <>
-                      <h2>Configuração Slide: {val.tituloSlide}</h2>
-                        <p className="p" type="Novo Título:">
-                        <input
-                          className="entrada"
-                          type="text"
-                          placeholder="Novo nome do título"
-                          onChange={(event) => {
-                            setNewTituloSlide(event.target.value);
-                          }}
-                        />
-                        </p>
-                        <p className="p" type="Novo Conteúdo:">
-                        <textarea
-                          cols="40"
-                          rows="5"
-                          className="entrada"
-                          type="text"
-                          placeholder="Atualizar conteudo"
-                          onChange={(event) => {
-                            setNewConteudoSlide(event.target.value);
-                          }}
-                        />
-                        </p>
-                        <button className="button" onClick={togglePopup}>Fechar</button>
+                <Popup>
+                  <div>
+                  <h2>Configuração Slide: {val.tituloSlide}</h2>
+                  <p className="p" type="Novo Título:">
+                    <textarea
+                      className="entrada"
+                      type="text"
+                      placeholder="Novo nome do título"
+                      onChange={(event) => {
+                        setNewTituloSlide(event.target.value);
+                      }}
+                    >{val.tituloSlide}</textarea>
+                  </p>
+                  <p className="p" type="Novo Conteúdo:">
+                    <textarea
+                      cols="40"
+                      rows="5"
+                      className="entrada"
+                      type="text"
+                      placeholder="Atualizar conteudo"
+                      onChange={(event) => {
+                        setNewConteudoSlide(event.target.value);
+                      }}
+                    >{val.conteudoSlide}</textarea>
+                  </p>
+                  <button className="button" onClick={togglePopup}>
+                    Fechar
+                  </button>
 
-                        <button
-                          className="button"
-                          onClick={() => updateSlide(val._id)}
-                        >
-                          Atualizar
-                        </button>
-                        <button
-                          className="button3"
-                          onClick={() => deleteSlide(val._id)}
-                        >
-                          Deletar
-                        </button>
-                      </>
-                    </div>
+                  <button
+                    className="button"
+                    onClick={() => updateSlide(val._id)}
+                  >
+                    Atualizar
+                  </button>
+                  <button
+                    className="button3"
+                    onClick={() => deleteSlide(val._id)}
+                  >
+                    Deletar
+                  </button>
                   </div>
-                )}
+                </Popup>
               </form>
             </Colapsavel>
           );
         })}
-      </body>
     </>
   );
 }
