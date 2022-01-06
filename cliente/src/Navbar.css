@@ -1,0 +1,41 @@
+#navbar {
+    width: 100%;
+    list-style-type: none;
+    margin: 0 auto !important;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0084ff;
+}
+
+#navbar ul {
+    width: 1200px;
+    list-style-type: none;
+    margin: 0 auto !important;
+    padding: 0;
+    overflow: hidden;
+    background-color: #0084ff;
+
+}
+
+#navbar ul li {
+    float: left;
+}
+
+
+#navbar ul li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 19px 16px;
+    text-decoration: none;
+}
+
+#navbar ul li a:hover {
+  color: #000;
+  background-color: #e7ffff;
+}
+.imagem{
+    display: inline-block;
+    padding: 14px 16px;
+    margin: 0;
+}

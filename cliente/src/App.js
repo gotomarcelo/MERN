@@ -3,6 +3,7 @@ import Axios from "axios";
 import "./App.css";
 import Colapsavel from "./Colapsavel";
 import Popup from "./Popup";
+import Navbar from "./Navbar";
 
 function App() {
   const [tituloSlide, setTitulo] = useState("");
@@ -12,8 +13,6 @@ function App() {
   const [newConteudoSlide, setNewConteudoSlide] = useState("");
 
   const [slideList, setSlideList] = useState([]);
-
-
 
   useEffect(() => {
     Axios.get("http://localhost:3001/read").then((response) =>
@@ -42,49 +41,50 @@ function App() {
 
   return (
     <>
+    <Navbar/>
+      <body className="body1">
+      <h1>REACT TO THE FUTURE</h1>
+      <Colapsavel label="Adicionar Nota">
+        <form className="form">
+          <h2>Adicionar Nota</h2>
+          <p className="p" type="Título:">
+            <input
+              className="entrada"
+              placeholder="Título da nota"
+              type="text"
+              onChange={(event) => {
+                setTitulo(event.target.value);
+              }}
+            />
+          </p>
 
-        <h1>React To The Future</h1>
-        <Colapsavel label="Adicionar Nota">
-          <form className="form">
-            <h2>Adicionar Nota</h2>
-            <p className="p" type="Título:">
-              <input
-                className="entrada"
-                placeholder="Título da nota"
-                type="text"
-                onChange={(event) => {
-                  setTitulo(event.target.value);
-                }}
-              />
-            </p>
+          <p className="p" type="Conteúdo:">
+            <textarea
+              cols="40"
+              rows="5"
+              className="entrada"
+              placeholder="Conteúdo da nota"
+              type="text"
+              onChange={(event) => {
+                setConteudo(event.target.value);
+              }}
+            />
+          </p>
+          <button className="button4" onClick={addToList}>
+            Adicionar Nota
+          </button>
+        </form>
+      </Colapsavel>
+      <h1>Notas</h1>
 
-            <p className="p" type="Conteúdo:">
-              <textarea
-                cols="40"
-                rows="5"
-                className="entrada"
-                placeholder="Conteúdo da nota"
-                type="text"
-                onChange={(event) => {
-                  setConteudo(event.target.value);
-                }}
-              />
-            </p>
-            <button  className="button4" onClick={addToList}>
-              Adicionar Nota
-            </button>
-          </form>
-        </Colapsavel>
-        <h1>Notas</h1>
-
-        {slideList.map((val, key) => {
-          return (
-            <Colapsavel label={val.tituloSlide} key={key}>
-              <form className="form2">
-                <h2>{val.tituloSlide}</h2>
-                <p>{val.conteudoSlide}</p>
-                <Popup>
-                  <div>
+      {slideList.map((val, key) => {
+        return (
+          <Colapsavel label={val.tituloSlide} key={key}>
+            <form className="form2">
+              <h2>{val.tituloSlide}</h2>
+              <p>{val.conteudoSlide}</p>
+              <Popup>
+                <div>
                   <h2>Configuração Nota: {val.tituloSlide}</h2>
                   <p className="p" type="Novo Título:">
                     <textarea
@@ -94,7 +94,9 @@ function App() {
                       onChange={(event) => {
                         setNewTituloSlide(event.target.value);
                       }}
-                    >{val.tituloSlide}</textarea>
+                    >
+                      {val.tituloSlide}
+                    </textarea>
                   </p>
                   <p className="p" type="Novo Conteúdo:">
                     <textarea
@@ -106,7 +108,9 @@ function App() {
                       onChange={(event) => {
                         setNewConteudoSlide(event.target.value);
                       }}
-                    >{val.conteudoSlide}</textarea>
+                    >
+                      {val.conteudoSlide}
+                    </textarea>
                   </p>
 
                   <button
@@ -121,12 +125,13 @@ function App() {
                   >
                     Deletar
                   </button>
-                  </div>
-                </Popup>
-              </form>
-            </Colapsavel>
-          );
-        })}
+                </div>
+              </Popup>
+            </form>
+          </Colapsavel>
+        );
+      })}
+      </body>
     </>
   );
 }
