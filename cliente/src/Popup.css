@@ -21,3 +21,20 @@
   /* border: 1px solid #999; */
   /* overflow: auto; */
 }
+.button {
+  width: 100px;
+  float: right;
+  padding: 0.1rem;
+  border-radius: 5px;
+  margin: 8px 1 0;
+  font-family: "Montserrat", sans-serif;
+  border: 2px solid #0084ff;
+  background: 0;
+  color: #5a5a6e;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.button:hover {
+  background: #b4daff;
+  color: rgb(0, 0, 0);
+}

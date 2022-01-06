@@ -20,6 +20,9 @@ body {
   padding: 0;
   margin: 0 auto !important;
 }
+h1 {
+  padding: 10px;
+}
 
 h2 {
   margin: 10px 0;
@@ -57,7 +60,6 @@ h2 {
 }
 
 .form2 {
-
   padding: 20px 30px;
   max-width: calc(100vw - 40px);
   box-sizing: border-box;
@@ -92,8 +94,8 @@ h2 {
   width: 30px;
   height: 30px;
   float: right;
-  top:0;
-  right:0;
+  top: 0;
+  right: 0;
   /* padding: 0.1rem; */
   border-radius: 5px;
   margin: -10px 0 0;
@@ -105,7 +107,11 @@ h2 {
   cursor: pointer;
   transition: all 0.3s;
 }
-.button3{
+.button2:hover {
+  background: #b4daff;
+  color: rgb(0, 0, 0);
+}
+.button3 {
   width: 100px;
   float: right;
   padding: 0.1rem;
@@ -118,12 +124,11 @@ h2 {
   cursor: pointer;
   transition: all 0.3s;
 }
-.button3:hover{
+.button3:hover {
   background: #ff5f82;
-
 }
 
-.button4{
+.button4 {
   width: 200px;
   float: right;
   padding: 0.1rem;
@@ -136,9 +141,13 @@ h2 {
   cursor: pointer;
   transition: all 0.3s;
 }
+.button4:hover {
+  background: #b4daff;
+}
 
 body {
   background-color: #e7ffff;
+  /* background-color: #e7ffff; */
 }
 
 textarea {

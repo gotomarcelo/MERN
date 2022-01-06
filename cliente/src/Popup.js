@@ -10,13 +10,22 @@ const Popup = (props) => {
 
   return (
     <>
-      <input className="button2" value="..." type="button" onClick={togglePopup} />
-      {isOpen && 
-      <div className="popup-box">
-        <div className="box">
-          {props.children}
+      <input
+        className="button2"
+        value="..."
+        type="button"
+        onClick={togglePopup}
+      />
+      {isOpen && (
+        <div className="popup-box">
+          <div className="box">
+            {props.children}
+            <button className="button" onClick={togglePopup}>
+              Fechar
+            </button>
+          </div>
         </div>
-      </div>}
+      )}
     </>
   );
 };

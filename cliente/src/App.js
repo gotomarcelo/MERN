@@ -13,11 +13,7 @@ function App() {
 
   const [slideList, setSlideList] = useState([]);
 
-  const [isOpen, setIsOpen] = useState(false);
 
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  };
 
   useEffect(() => {
     Axios.get("http://localhost:3001/read").then((response) =>
@@ -30,7 +26,6 @@ function App() {
       tituloSlide: tituloSlide,
       conteudoSlide: conteudoSlide,
     });
-    window.location.reload();
   };
 
   const updateSlide = (id) => {
@@ -39,25 +34,23 @@ function App() {
       newTituloSlide: newTituloSlide,
       newConteudoSlide: newConteudoSlide,
     });
-    window.location.reload();
   };
 
   const deleteSlide = (id) => {
     Axios.delete(`http://localhost:3001/delete/${id}`);
-    window.location.reload();
   };
 
   return (
     <>
 
         <h1>React To The Future</h1>
-        <Colapsavel label="Adicionar Slide">
+        <Colapsavel label="Adicionar Nota">
           <form className="form">
-            <h2>Adicionar Slide</h2>
+            <h2>Adicionar Nota</h2>
             <p className="p" type="Título:">
               <input
                 className="entrada"
-                placeholder="Título do slide"
+                placeholder="Título da nota"
                 type="text"
                 onChange={(event) => {
                   setTitulo(event.target.value);
@@ -70,7 +63,7 @@ function App() {
                 cols="40"
                 rows="5"
                 className="entrada"
-                placeholder="Conteúdo do slide"
+                placeholder="Conteúdo da nota"
                 type="text"
                 onChange={(event) => {
                   setConteudo(event.target.value);
@@ -78,11 +71,11 @@ function App() {
               />
             </p>
             <button  className="button4" onClick={addToList}>
-              Add To List
+              Adicionar Nota
             </button>
           </form>
         </Colapsavel>
-        <h1>SLIDES</h1>
+        <h1>Notas</h1>
 
         {slideList.map((val, key) => {
           return (
@@ -92,7 +85,7 @@ function App() {
                 <p>{val.conteudoSlide}</p>
                 <Popup>
                   <div>
-                  <h2>Configuração Slide: {val.tituloSlide}</h2>
+                  <h2>Configuração Nota: {val.tituloSlide}</h2>
                   <p className="p" type="Novo Título:">
                     <textarea
                       className="entrada"
@@ -115,9 +108,6 @@ function App() {
                       }}
                     >{val.conteudoSlide}</textarea>
                   </p>
-                  <button className="button" onClick={togglePopup}>
-                    Fechar
-                  </button>
 
                   <button
                     className="button"
