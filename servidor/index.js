@@ -3,11 +3,13 @@ const app = express();
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+// chamando as bibliotecas necessárias, o cors é para o navegador aceitar o BD local
 app.use(express.json());
 app.use(cors());
 
 const SlideModel = require("./models/Slide.js");
 
+// conexão com o MongoDB
 mongoose.connect(
   "mongodb+srv://admin:admin@cluster0.zh8gi.mongodb.net/slide?retryWrites=true&w=majority",
   {
@@ -15,6 +17,7 @@ mongoose.connect(
   }
 );
 
+// função inserir
 app.post("/insert", async (req, res) => {
   const tituloSlide = req.body.tituloSlide;
   const conteudoSlide = req.body.conteudoSlide;
@@ -29,6 +32,7 @@ app.post("/insert", async (req, res) => {
   }
 });
 
+// função para ler dados
 app.get("/read", async (req, res) => {
   SlideModel.find({}, (error, result) => {
     if (error) {
@@ -39,6 +43,7 @@ app.get("/read", async (req, res) => {
   });
 });
 
+// função para atualizar
 app.put("/update", async (req, res) => {
   const newTituloSlide = req.body.newTituloSlide;
   const newConteudoSlide = req.body.newConteudoSlide;
@@ -56,6 +61,7 @@ app.put("/update", async (req, res) => {
   }
 });
 
+// função para deletar
 app.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
 
@@ -63,6 +69,7 @@ app.delete("/delete/:id", async (req, res) => {
   res.send("deletado")
 });
 
+// função para mostar que o BD está rodando aqui no vscode
 app.listen(3001, () => {
   console.log("Servidor rodando na porta 3001.");
 });

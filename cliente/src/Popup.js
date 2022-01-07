@@ -3,7 +3,8 @@ import "./Popup.css";
 
 const Popup = (props) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  
+  // Toggle true <-> false
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };

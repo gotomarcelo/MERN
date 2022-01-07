@@ -13,13 +13,14 @@ button {
   font-size: 20px;
   margin: 5px;
 }
+/* body que pega todo o site mas feito pra pegar a navbar */
 body {
   max-width: 100%;
   font-size: 18px;
   padding: 0;
   margin: 0 auto !important;
 }
-
+/* Body do conteudo em si */
 .body1 {
   max-width: 1200px;
   font-size: 18px;
@@ -38,6 +39,7 @@ h2 {
   border-bottom: 3px solid #b4daff;
 }
 
+/* entrada form */
 .entrada {
   width: 100%;
   padding: 10px;
@@ -79,6 +81,7 @@ h2 {
   font-size: 14px;
   color: #0084ff;
 }
+/* botão de edição */
 .button {
   width: 100px;
   float: right;
@@ -96,6 +99,7 @@ h2 {
   background: #b4daff;
   color: rgb(0, 0, 0);
 }
+/* botão de algumas configurações (atualizar) */
 .button2 {
   width: 30px;
   height: 30px;
@@ -117,6 +121,8 @@ h2 {
   background: #b4daff;
   color: rgb(0, 0, 0);
 }
+
+/* botão delete */
 .button3 {
   width: 100px;
   float: right;
@@ -133,7 +139,7 @@ h2 {
 .button3:hover {
   background: #ff5f82;
 }
-
+/* botão de adicionar */
 .button4 {
   width: 200px;
   float: right;

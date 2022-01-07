@@ -13,6 +13,7 @@ function Colapsavel(props) {
       </button>
       <div 
       className="conteudo-pai" 
+      // esse ref muda com o toggle acima, ao clicar, o estilo muda
       ref={paiRef} 
       style={isOpen 
         ?   {
